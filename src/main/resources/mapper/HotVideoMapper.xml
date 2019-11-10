@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatisplus.dao.mapper.HotVideoMapper">
+  <resultMap id="BaseResultMap" type="com.mybatisplus.dao.domain.HotVideo">
+    <id     column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="video_url" jdbcType="VARCHAR" property="videoUrl" />
+    <result column="blogger_id" jdbcType="VARCHAR" property="bloggerId" />
+    <result column="cycle" jdbcType="VARCHAR" property="cycle" />
+    <result column="time" jdbcType="VARCHAR" property="time" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="task_id" jdbcType="INTEGER" property="taskId" />
+    <result column="hot_word" jdbcType="VARCHAR" property="hotWord" />
+    <result column="blogger" jdbcType="VARCHAR" property="blogger" />
+    <result column="supports" jdbcType="VARCHAR" property="supports" />
+    <result column="comments" jdbcType="VARCHAR" property="comments" />
+    <result column="blogger_url" jdbcType="VARCHAR" property="bloggerUrl" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+ 
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+  </resultMap>
+
+   <select id="queryAuth">
+   		SELECT * FROM login_auth where status  in (0,2) limit 1
+   </select>   
+   
+   <select id="queryHotVideo"  resultMap ="BaseResultMap">
+   		SELECT *  FROM hot_video where  status  = 0  limit 1
+   </select>   
+
+   <insert id="insertHotVideo" parameterType="com.mybatisplus.dao.domain.HotVideo">
+   
+           insert into hot_video(  title,create_date)  values(  #{title},#{createDate})
+   </insert>
+    
+    <update  id="updateRepeat" parameterType="java.lang.String">
+       update hot_video set status =4 where blogger_id =#{bloggerId} and status=2
+    </update>
+    
+    <update  id="updateBloggerNotNeed" parameterType="java.lang.Integer">
+       update hot_video set status =4 where task_id =#{taskId} and status=2
+    </update>
+    
+    <update  id="updateSortBlogger" parameterType="java.lang.Integer">
+	    UPDATE hot_video  C SET C.STATUS = 0 WHERE EXISTS (
+	
+		  SELECT B.blogger_id FROM (
+			  SELECT  A.blogger_id FROM (
+					 SELECT blogger_id, count(blogger_id)  as num, sum(supports) supports FROM  hot_video  where task_id=#{taskId} AND STATUS !=3 GROUP BY blogger_id  
+			  ) A ORDER BY A.num desc ,A.supports desc  limit 50
+		 ) B WHERE B.blogger_id=C.blogger_id
+	
+	  ) AND C.task_id =#{taskId} AND C.STATUS =2
+
+    </update>
+     
+</mapper>

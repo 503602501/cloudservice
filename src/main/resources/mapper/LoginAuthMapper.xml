@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatisplus.dao.mapper.LoginAuthMapper">
+  
+  <resultMap id="BaseResultMap" type="com.mybatisplus.dao.domain.LoginAuth">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="account" jdbcType="VARCHAR" property="account" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="cookie" jdbcType="VARCHAR" property="cookie" />
+    <result column="origin_cookie" jdbcType="VARCHAR" property="originCookie" />
+    <result column="ua" jdbcType="VARCHAR" property="ua" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="limit_count" jdbcType="INTEGER" property="limitCount" />
+    <result column="delay" jdbcType="INTEGER" property="delay" />
+    <result column="last_datetime" jdbcType="TIMESTAMP" property="lastDatetime" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  
+  <select id="queryAuth" resultType="com.mybatisplus.dao.domain.LoginAuth">
+  	select * from login_auth where status in (0,2) limit 1
+  </select>
+  
+  <select id="selectList"  resultMap="BaseResultMap">
+  	  SELECT  * from  login_auth where ( ( TIMESTAMPDIFF(MINUTE,last_datetime,NOW()) > delay and status = 4 ) OR status in (0,1,2) )
+  	  <if test="status != null">
+  	  	AND status!=#{status}
+  	  </if>
+  	  
+  </select>
+  
+  <select id="queryLoginActive" resultType="com.mybatisplus.dao.domain.LoginAuth">
+  	select * from login_auth where status=1 limit 1
+  </select>
+  
+  
+</mapper>

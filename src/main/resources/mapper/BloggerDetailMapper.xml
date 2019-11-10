@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mybatisplus.dao.mapper.BloggerDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.mybatisplus.dao.domain.BloggerDetail" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="blogger_id" property="bloggerId" jdbcType="VARCHAR" />
+    <result column="blogger" property="blogger" jdbcType="VARCHAR" />
+    <result column="dy_account" property="dyAccount" jdbcType="VARCHAR" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="new_work7" property="newWork7" jdbcType="INTEGER" />
+    <result column="fan_add7" property="fanAdd7" jdbcType="INTEGER" />
+    <result column="suppport_add7" property="suppportAdd7" jdbcType="INTEGER" />
+    <result column="commnet_add7" property="commnetAdd7" jdbcType="INTEGER" />
+    <result column="share_add7" property="shareAdd7" jdbcType="INTEGER" />
+    <result column="fan_add30" property="fanAdd30" jdbcType="INTEGER" />
+    <result column="new_work30" property="newWork30" jdbcType="INTEGER" />
+    <result column="suppport_add30" property="suppportAdd30" jdbcType="INTEGER" />
+    <result column="commnet_add30" property="commnetAdd30" jdbcType="INTEGER" />
+    <result column="share_add30" property="shareAdd30" jdbcType="INTEGER" />
+    <result column="classify" property="classify" jdbcType="VARCHAR" />
+    <result column="profile" property="profile" jdbcType="VARCHAR" />
+    <result column="rank" property="rank" jdbcType="VARCHAR" />
+    <result column="fans" property="fans" jdbcType="INTEGER" />
+    <result column="works" property="works" jdbcType="INTEGER" />
+    <result column="supports" property="supports" jdbcType="INTEGER" />
+    <result column="avg_supports" property="avgSupports" jdbcType="INTEGER" />
+    <result column="avg_comments" property="avgComments" jdbcType="INTEGER" />
+    <result column="avg_shares" property="avgShares" jdbcType="INTEGER" />
+    <result column="man_ratio" property="manRatio" jdbcType="VARCHAR" />
+    <result column="woman_ratio" property="womanRatio" jdbcType="VARCHAR" />
+    <result column="location1" property="location1" jdbcType="VARCHAR" />
+    <result column="location1_ratio" property="location1Ratio" jdbcType="VARCHAR" />
+    <result column="location2" property="location2" jdbcType="VARCHAR" />
+    <result column="location2_ratio" property="location2Ratio" jdbcType="VARCHAR" />
+    <result column="location3" property="location3" jdbcType="VARCHAR" />
+    <result column="location3_ratio" property="location3Ratio" jdbcType="VARCHAR" />
+    <result column="location4" property="location4" jdbcType="VARCHAR" />
+    <result column="location4_ratio" property="location4Ratio" jdbcType="VARCHAR" />
+    <result column="location5" property="location5" jdbcType="VARCHAR" />
+    <result column="location5_ratio" property="location5Ratio" jdbcType="VARCHAR" />
+    <result column="city1" property="city1" jdbcType="VARCHAR" />
+    <result column="city1_ratio" property="city1Ratio" jdbcType="VARCHAR" />
+    <result column="city2" property="city2" jdbcType="VARCHAR" />
+    <result column="city2_ratio" property="city2Ratio" jdbcType="VARCHAR" />
+    <result column="city3" property="city3" jdbcType="VARCHAR" />
+    <result column="city3_ratio" property="city3Ratio" jdbcType="VARCHAR" />
+    <result column="city4" property="city4" jdbcType="VARCHAR" />
+    <result column="city4_ratio" property="city4Ratio" jdbcType="VARCHAR" />
+    <result column="city5" property="city5" jdbcType="VARCHAR" />
+    <result column="city5_ratio" property="city5Ratio" jdbcType="VARCHAR" />
+    <result column="zodiac1" property="zodiac1" jdbcType="VARCHAR" />
+    <result column="zodiac1_ratio" property="zodiac1Ratio" jdbcType="VARCHAR" />
+    <result column="zodiac2" property="zodiac2" jdbcType="VARCHAR" />
+    <result column="zodiac2_ratio" property="zodiac2Ratio" jdbcType="VARCHAR" />
+    <result column="zodiac3" property="zodiac3" jdbcType="VARCHAR" />
+    <result column="zodiac3_ratio" property="zodiac3Ratio" jdbcType="VARCHAR" />
+  </resultMap>
+  
+</mapper>
