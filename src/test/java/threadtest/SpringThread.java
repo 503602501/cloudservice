@@ -20,7 +20,7 @@ public class SpringThread extends Thread{
 	        		}
 	        	}else{
 	        		for (int i = 0; i < 5; i++) {
-						System.out.println( parameter+"线程运行中");
+						System.out.println( parameter+"线程  运行中");
 						try {
 							Thread.sleep(1000);
 						} catch (InterruptedException e) {
